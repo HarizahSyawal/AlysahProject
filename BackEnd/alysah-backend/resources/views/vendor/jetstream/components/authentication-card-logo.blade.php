@@ -1,0 +1,1 @@
+<img src="/loginlogo.png" alt="Logo"/>

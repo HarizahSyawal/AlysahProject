@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "801508717718",
+    "project_id": "alysha-store",
+    "storage_bucket": "alysha-store.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:801508717718:android:cdeb286bc87a17e5717eb7",
+        "android_client_info": {
+          "package_name": "com.wahyu.alysah_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "801508717718-nu8aknn6n2paev2uelh11feh3ob1joch.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACNKYOgyTHK2g_nQxouiWyWCFQynK6Pd0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "801508717718-nu8aknn6n2paev2uelh11feh3ob1joch.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
