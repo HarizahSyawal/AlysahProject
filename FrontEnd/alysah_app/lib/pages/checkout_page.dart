@@ -84,6 +84,54 @@ class _CheckoutPageState extends State<CheckoutPage> {
       );
     }
 
+    Future<void> showPaymentDialog() async {
+      return showDialog(
+        context: context,
+        builder: (BuildContext context) => Container(
+          width: MediaQuery.of(context).size.width - (2 * defaultMargin),
+          child: AlertDialog(
+            backgroundColor: backgroundColor3,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30),
+            ),
+            content: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Image.network(
+                      'https://www.masjidalfauzien.org/uploads/2/5/7/1/2571463/qris-masjidfauzien-22_orig.jpg'),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    width: 154,
+                    height: 44,
+                    child: TextButton(
+                      onPressed: () async {
+                        await handleCheckout();
+                      },
+                      style: TextButton.styleFrom(
+                        backgroundColor: primaryColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      child: Text(
+                        'Close',
+                        style: primaryTextStyle.copyWith(
+                          fontSize: 16,
+                          fontWeight: medium,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+    }
+
     Future<void> showSuccessDialog() async {
       return showDialog(
         context: context,
@@ -466,7 +514,9 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     vertical: defaultMargin,
                   ),
                   child: TextButton(
-                    onPressed: handleCheckout,
+                    onPressed: () async {
+                      await showPaymentDialog();
+                    },
                     style: TextButton.styleFrom(
                       backgroundColor: primaryColor,
                       shape: RoundedRectangleBorder(
