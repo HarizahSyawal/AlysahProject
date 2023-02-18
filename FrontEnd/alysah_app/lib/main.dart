@@ -3,6 +3,7 @@ import 'package:alysah_app/pages/checkout_success_page.dart';
 import 'package:alysah_app/pages/home/cart_page.dart';
 import 'package:alysah_app/pages/home/edit_profile_page.dart';
 import 'package:alysah_app/pages/home/home_page.dart';
+import 'package:alysah_app/pages/home/location_tracking.dart';
 import 'package:alysah_app/pages/home/main_page.dart';
 import 'package:alysah_app/pages/home/profile_page.dart';
 import 'package:alysah_app/pages/home/wishlist_page.dart';
@@ -54,6 +55,7 @@ class MyApp extends StatelessWidget {
           '/checkout': ((context) => CheckoutPage()),
           '/checkout-success': ((context) => CheckoutSuccessPage()),
           '/order-page': ((context) => OrderPage()),
+          '/location_tracking': ((context) => LocationTracking()),
         },
       ),
     );

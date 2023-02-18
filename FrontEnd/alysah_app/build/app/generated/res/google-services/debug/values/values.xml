@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">801508717718-nu8aknn6n2paev2uelh11feh3ob1joch.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">801508717718</string>
+    <string name="google_api_key" translatable="false">AIzaSyACNKYOgyTHK2g_nQxouiWyWCFQynK6Pd0</string>
+    <string name="google_app_id" translatable="false">1:801508717718:android:cdeb286bc87a17e5717eb7</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyACNKYOgyTHK2g_nQxouiWyWCFQynK6Pd0</string>
+    <string name="google_storage_bucket" translatable="false">alysha-store.appspot.com</string>
+    <string name="project_id" translatable="false">alysha-store</string>
+</resources>

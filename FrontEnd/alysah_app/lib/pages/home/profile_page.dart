@@ -145,7 +145,9 @@ class ProfilePage extends StatelessWidget {
                 ),
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, '/location_tracking');
+                },
                 child: menuItem(
                   'Tracking Order',
                 ),
