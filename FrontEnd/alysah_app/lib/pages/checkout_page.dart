@@ -17,6 +17,17 @@ class _CheckoutPageState extends State<CheckoutPage> {
   bool isLoading = false;
   TextEditingController addressController = TextEditingController(text: '');
   @override
+  void initState() {
+    super.initState();
+    addressController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    addressController.dispose();
+    super.dispose();
+  }
+
   Widget build(BuildContext context) {
     CartProvider cartProvider = Provider.of<CartProvider>(context);
     TransactionProvider transactionProvider =
@@ -52,7 +63,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
           textAlign: TextAlign.center,
         ),
       ));
-      Navigator.of(context).pop();
+      Navigator.of(context).pop(addressController.text);
     }
 
     Widget header() {
@@ -128,6 +139,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                         Expanded(
                             child: TextFormField(
                           style: primaryTextStyle,
+                          autofocus: true,
                           controller: addressController,
                           decoration: InputDecoration.collapsed(
                               hintText: 'Your Address',
@@ -143,8 +155,8 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     width: 154,
                     height: 44,
                     child: TextButton(
-                      onPressed: () {
-                        handleUpdateAddress();
+                      onPressed: () async {
+                        await handleUpdateAddress();
                       },
                       style: TextButton.styleFrom(
                         backgroundColor: primaryColor,
@@ -245,66 +257,78 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     SizedBox(
                       width: 12,
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Store Location',
-                          style: secondaryTextStyle.copyWith(
-                            fontSize: 12,
-                            fontWeight: light,
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Store Location',
+                            style: secondaryTextStyle.copyWith(
+                              fontSize: 12,
+                              fontWeight: light,
+                            ),
                           ),
-                        ),
-                        Text(
-                          'Toko Alysha',
-                          style: primaryTextStyle.copyWith(
-                            fontWeight: medium,
+                          Text(
+                            'Toko Alysah',
+                            style: primaryTextStyle.copyWith(
+                              fontWeight: medium,
+                            ),
                           ),
-                        ),
-                        SizedBox(
-                          height: defaultMargin,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Your Address',
-                                  style: secondaryTextStyle.copyWith(
-                                    fontSize: 12,
-                                    fontWeight: light,
-                                  ),
+                          SizedBox(
+                            height: defaultMargin,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(
+                                  top: 2,
+                                  right: 1,
                                 ),
-                                Text(
-                                  addressController.text,
-                                  style: primaryTextStyle.copyWith(
-                                    fontWeight: medium,
-                                  ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Your Address',
+                                      style: secondaryTextStyle.copyWith(
+                                        fontSize: 12,
+                                        fontWeight: light,
+                                      ),
+                                    ),
+                                    Text(
+                                      addressController.text,
+                                      style: primaryTextStyle.copyWith(
+                                        fontWeight: medium,
+                                      ),
+                                      overflow: TextOverflow.clip,
+                                      maxLines: 3,
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
-                            SizedBox(
-                              width: 118,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                GestureDetector(
-                                  onTap: () {
-                                    showSuccessDialog();
-                                  },
-                                  child: Image.asset(
-                                    'assets/edit_icon.png',
-                                    width: 40,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  GestureDetector(
+                                    onTap: () async {
+                                      await showSuccessDialog();
+
+                                      setState(() {
+                                        this.addressController.text =
+                                            addressController.text;
+                                      });
+                                    },
+                                    child: Image.asset(
+                                      'assets/edit_icon.png',
+                                      width: 40,
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
