@@ -9,6 +9,8 @@ class TransactionModel {
   double shipping_price;
   String status = 'PENDING';
   String payment = 'MANUAL';
+  String name = '-';
+  List listprdk = [];
   // List<TransactionItem> items;
 
   TransactionModel({
@@ -19,6 +21,7 @@ class TransactionModel {
     this.shipping_price,
     this.status,
     this.payment,
+    this.name,
     // this.items,
   });
 
@@ -30,6 +33,12 @@ class TransactionModel {
     shipping_price = double.parse(json['shipping_price'].toString());
     status = json['status'];
     payment = json['payment'];
+    listprdk = json['items'] as List;
+    // name = json['products']['name'];
+    print(json);
+    // (json['items'] as List).forEach((e) {
+    //   print(e);
+    // });
     // items = json['items']
     //     .map<TransactionItem>((items) => TransactionItem.fromJson(items))
     //     .toList();

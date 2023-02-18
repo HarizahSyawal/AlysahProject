@@ -56,6 +56,29 @@ class OrderCard extends StatelessWidget {
                   ),
                 ),
                 Text(
+                  'Qty : ${transactions.listprdk.length} Produk',
+                  //transactions.product.name,
+                  style: primaryTextStyle.copyWith(
+                    fontWeight: bold,
+                    fontSize: 14,
+                    decoration: TextDecoration.none,
+                  ),
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: transactions.listprdk
+                      .map((e) => Text(
+                            'Nm Produk : ${e['product']['name'].toString()}',
+                            //transactions.product.name,
+                            style: primaryTextStyle.copyWith(
+                              fontWeight: bold,
+                              fontSize: 10,
+                              decoration: TextDecoration.none,
+                            ),
+                          ))
+                      .toList(),
+                ),
+                Text(
                   'Alamat : ${transactions.address}',
                   //transactions.product.name,
                   style: primaryTextStyle.copyWith(

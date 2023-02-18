@@ -72,7 +72,7 @@ class TransactionService {
         transactions.add(TransactionModel.fromJson(item));
       }
 
-      print(response.body);
+      // print(response.body);
 
       return transactions;
     } else {
