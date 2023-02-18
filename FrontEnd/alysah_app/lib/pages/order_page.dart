@@ -139,7 +139,6 @@ class _OrderPageState extends State<OrderPage> {
       child: Column(
         children: [
           header(),
-          //emptyWishList(),
           transactionProvider.transactions.isEmpty
               ? emptyWishList()
               : content(),

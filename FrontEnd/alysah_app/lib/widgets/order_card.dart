@@ -1,12 +1,8 @@
 import 'package:alysah_app/models/transaction_model.dart';
-import 'package:alysah_app/providers/product_provider.dart';
 import 'package:alysah_app/providers/transaction_provider.dart';
 import 'package:alysah_app/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../models/product_model.dart';
-import '../providers/auth_provider.dart';
-import '../providers/wishlist_provider.dart';
 
 class OrderCard extends StatelessWidget {
   final TransactionModel transactions;
@@ -46,46 +42,18 @@ class OrderCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Transaksi id : ${transactions.id}',
-                  //transactions.product.name,
-                  style: primaryTextStyle.copyWith(
-                    fontWeight: bold,
-                    fontSize: 14,
-                    decoration: TextDecoration.none,
-                  ),
-                ),
-                Text(
-                  'Qty : ${transactions.listprdk.length} Produk',
-                  //transactions.product.name,
-                  style: primaryTextStyle.copyWith(
-                    fontWeight: bold,
-                    fontSize: 14,
-                    decoration: TextDecoration.none,
-                  ),
-                ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: transactions.listprdk
+                  children: transactions.productlist
                       .map((e) => Text(
-                            'Nm Produk : ${e['product']['name'].toString()}',
-                            //transactions.product.name,
+                            '${e['product']['name'].toString()}',
                             style: primaryTextStyle.copyWith(
                               fontWeight: bold,
-                              fontSize: 10,
+                              fontSize: 14,
                               decoration: TextDecoration.none,
                             ),
                           ))
                       .toList(),
-                ),
-                Text(
-                  'Alamat : ${transactions.address}',
-                  //transactions.product.name,
-                  style: primaryTextStyle.copyWith(
-                    fontWeight: bold,
-                    fontSize: 10,
-                    decoration: TextDecoration.none,
-                  ),
                 ),
                 Text('Rp.${transactions.total_price}',
                     style: priceTextStyle.copyWith(
@@ -93,6 +61,11 @@ class OrderCard extends StatelessWidget {
                       decoration: TextDecoration.none,
                     )),
                 Text('Status : ${transactions.status}',
+                    style: secondaryTextStyle.copyWith(
+                      fontSize: 10,
+                      decoration: TextDecoration.none,
+                    )),
+                Text('${transactions.productlist.length} Produk',
                     style: secondaryTextStyle.copyWith(
                       fontSize: 10,
                       decoration: TextDecoration.none,

@@ -1,6 +1,3 @@
-import 'package:alysah_app/models/product_model.dart';
-import 'package:alysah_app/widgets/order_card.dart';
-
 class TransactionModel {
   int id;
   int users_id;
@@ -10,8 +7,7 @@ class TransactionModel {
   String status = 'PENDING';
   String payment = 'MANUAL';
   String name = '-';
-  List listprdk = [];
-  // List<TransactionItem> items;
+  List productlist = [];
 
   TransactionModel({
     this.id,
@@ -22,7 +18,6 @@ class TransactionModel {
     this.status,
     this.payment,
     this.name,
-    // this.items,
   });
 
   TransactionModel.fromJson(Map<String, dynamic> json) {
@@ -33,15 +28,8 @@ class TransactionModel {
     shipping_price = double.parse(json['shipping_price'].toString());
     status = json['status'];
     payment = json['payment'];
-    listprdk = json['items'] as List;
-    // name = json['products']['name'];
-    print(json);
-    // (json['items'] as List).forEach((e) {
-    //   print(e);
-    // });
-    // items = json['items']
-    //     .map<TransactionItem>((items) => TransactionItem.fromJson(items))
-    //     .toList();
+    productlist = json['items'] as List;
+    //print(json);
   }
 
   Map<String, dynamic> toJson() {
@@ -53,38 +41,6 @@ class TransactionModel {
       'shipping_price': shipping_price,
       'status': status,
       'payment': payment,
-      // 'items': items.map((items) => items.toJson()).toList(),
     };
   }
 }
-
-// class TransactionItem {
-//   int id;
-//   int users_id;
-//   int products_id;
-//   int transactions_id;
-//   int quantity;
-//   List<ProductModel> products;
-
-//   TransactionItem.fromJson(Map<String, dynamic> json) {
-//     id = json['id'];
-//     users_id = json['users_id'];
-//     products_id = json['products_id'];
-//     transactions_id = json['transactions_id'];
-//     quantity = json['quantity'];
-//     products = json['product']
-//         .map<ProductModel>((product) => ProductModel.fromJson(product))
-//         .toList();
-//   }
-
-//   Map<String, dynamic> toJson() {
-//     return {
-//       'id': id,
-//       'users_id': users_id,
-//       'products_id': products_id,
-//       'transactions_id': transactions_id,
-//       'quantity': quantity,
-//       'products': products.map((product) => product.toJson()).toList(),
-//     };
-//   }
-// }
