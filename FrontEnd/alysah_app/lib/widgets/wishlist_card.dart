@@ -31,7 +31,7 @@ class WishlistCard extends StatelessWidget {
         children: [
           ClipRRect(
             child: Image.network(
-              'http://127.0.0.1:8000${product.galleries[0].url}',
+              'http://wahyudin.tokoalysha.my.id${product.galleries[0].url}',
               width: 60,
             ),
           ),
