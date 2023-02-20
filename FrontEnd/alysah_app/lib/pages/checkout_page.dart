@@ -97,8 +97,11 @@ class _CheckoutPageState extends State<CheckoutPage> {
             content: SingleChildScrollView(
               child: Column(
                 children: [
-                  Image.network(
-                      'https://www.masjidalfauzien.org/uploads/2/5/7/1/2571463/qris-masjidfauzien-22_orig.jpg'),
+                  Image.asset(
+                    'assets/qris.jpg',
+                    // width: 30,
+                    // height: 30,
+                  ),
                   SizedBox(
                     height: 20,
                   ),
