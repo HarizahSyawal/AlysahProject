@@ -56,6 +56,7 @@ class MyApp extends StatelessWidget {
           '/checkout-success': ((context) => CheckoutSuccessPage()),
           '/order-page': ((context) => OrderPage()),
           '/location_tracking': ((context) => LocationTracking()),
+          //'/splash_page': ((context) => SplashPage()),
         },
       ),
     );

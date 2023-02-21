@@ -62,7 +62,7 @@ class _DetailChatPageState extends State<DetailChatPage> {
             children: [
               Image.asset(
                 'assets/shop_picture.png',
-                width: 50,
+                width: 47,
               ),
               SizedBox(
                 width: 12,

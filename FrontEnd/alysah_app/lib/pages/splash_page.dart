@@ -32,13 +32,13 @@ class _SplashPageState extends State<SplashPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                width: 130,
-                height: 150,
+                width: 550,
+                height: 300,
                 // ignore: prefer_const_constructors
                 decoration: BoxDecoration(
                   // ignore: prefer_const_constructors
                   image: DecorationImage(
-                    image: AssetImage('assets/image_splash.png'),
+                    image: AssetImage('assets/alysah_splash.png'),
                   ),
                 ),
               ),

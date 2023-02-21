@@ -25,6 +25,12 @@ class _OrderPageState extends State<OrderPage> {
           .getTransactions(token: user.token);
     }
 
+    @override
+    void initState() {
+      super.initState();
+      _loadResources(true);
+    }
+
     Widget header() {
       return AppBar(
         leading: IconButton(

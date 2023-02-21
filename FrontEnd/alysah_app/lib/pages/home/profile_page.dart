@@ -11,6 +11,10 @@ class ProfilePage extends StatelessWidget {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
     UserModel user = authProvider.user;
 
+    Future<void> _loadResources(bool reload) async {
+      await Provider.of<AuthProvider>(context, listen: false);
+    }
+
     Widget header() {
       return AppBar(
         backgroundColor: backgroundColor1,
