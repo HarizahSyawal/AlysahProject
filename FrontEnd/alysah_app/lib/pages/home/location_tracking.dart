@@ -79,6 +79,7 @@ import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 import '../../services/googlemap_api.dart';
+import '../../theme.dart';
 
 class LocationTracking extends StatefulWidget {
   const LocationTracking({Key key}) : super(key: key);
@@ -88,8 +89,8 @@ class LocationTracking extends StatefulWidget {
 }
 
 class _LocationTrackingState extends State<LocationTracking> {
-  LatLng sourceLocation = LatLng(-5.1114743, 119.2625408);
-  LatLng destinationLatlng = LatLng(-5.1114743, 119.2625408);
+  LatLng sourceLocation = LatLng(-6.205373, 106.818069);
+  LatLng destinationLatlng = LatLng(-6.2185088, 106.8007026);
 
   Completer<GoogleMapController> _controller = Completer();
 
@@ -226,6 +227,24 @@ class _LocationTrackingState extends State<LocationTracking> {
           )
         : SafeArea(
             child: Scaffold(
+              appBar: AppBar(
+                leading: IconButton(
+                  icon: Icon(Icons.close),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                backgroundColor: backgroundColor1,
+                elevation: 0,
+                centerTitle: true,
+                title: Text(
+                  'Tracking Order',
+                  style: primaryTextStyle.copyWith(
+                    fontSize: 18,
+                    fontWeight: medium,
+                  ),
+                ),
+              ),
               body: GoogleMap(
                 myLocationButtonEnabled: true,
                 compassEnabled: true,
