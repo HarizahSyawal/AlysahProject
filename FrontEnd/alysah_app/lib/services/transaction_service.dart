@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:alysah_app/models/transaction_model.dart';
 import 'package:http/http.dart' as http;
 import '../models/cart_model.dart';
-import '../models/product_model.dart';
 
 class TransactionService {
 // http://localhost:SPECIFIC_PORT // port 80 by default
@@ -55,7 +54,6 @@ class TransactionService {
   }
 
   Future<List<TransactionModel>> getTransactions(String token) async {
-    List<ProductModel> products;
     var url = '$baseUrl/transaction';
     var headers = {'Content-Type': 'application/json', 'Authorization': token};
 
